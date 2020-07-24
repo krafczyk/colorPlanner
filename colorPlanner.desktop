@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=colorPlanner
+X-Python-2-Compatible=false
+X-Krita-Manual=colorPlanner.html
+Name=Color Planner Plugin
+Comment=This plugin takes a base image, mask, original color, and goal color and provides a preview of the image with that color.
