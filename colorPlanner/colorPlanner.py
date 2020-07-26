@@ -1,5 +1,8 @@
 from krita import *
 from PyQt5.QtWidgets import *
+from PyQt5 import uic
+
+from .colorPlannerForm import Ui_colorPlannerForm
 
 #class MyExtension(Extension):
 #    def __init__(self, parent):
@@ -26,16 +29,25 @@ from PyQt5.QtWidgets import *
 #
 #Krita.instance().addExtension(MyExtension(Krita.instance()))
 
-class MyDocker(DockWidget):
+class ColorPlannerDocker(DockWidget):
     def __init__(self):
-        super().__init()
-        #self.setWindowTitle("My Docker")
-        #mainWidget = QWidget(self)
-        #self.setWidget(mainWidget)
-        #buttonExportDocument = QPushButton("Export Document", mainWidget)
-        #buttonExportDocument.clicked.connect(self.exportDocument)
-        #mainWidget.setLayout(QVBoxLayout())
-        #mainWidget.layout().addWidget(buttonExportDocument)
+        # Initialize Parent
+        super().__init__()
+        # Set Name of window
+        self.setWindowTitle("Color Planner")
+
+        # Get main widget
+        mainWidget = QWidget(self)
+        self.setWidget(mainWidget)
+
+        self.Ui = Ui_colorPlannerForm()
+        self.Ui.setupUi(mainWidget)
+
+        self.Ui.refreshMainLayers.clicked.connect(self.refreshMainLayers)
+
+    def refreshMainLayers(self):
+        print("refreshMainLayers called!")
+        #Krita.instance().
 
     def exportDocument(self):
         # Get the document
@@ -52,4 +64,4 @@ class MyDocker(DockWidget):
     def canvasChanged(self, canvas):
         pass
 
-Krita.instance().addDockWidgetFactory(DockWidgetFactory("myDocker", DockWidgetFactoryBase.DockRight, MyDocker))
+Krita.instance().addDockWidgetFactory(DockWidgetFactory("colorPlannerDocker", DockWidgetFactoryBase.DockRight, ColorPlannerDocker))
