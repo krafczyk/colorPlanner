@@ -29,6 +29,15 @@ from .colorPlannerForm import Ui_colorPlannerForm
 #
 #Krita.instance().addExtension(MyExtension(Krita.instance()))
 
+def ErrorMessage(message, title="", informative_text=""):
+    msgBox = QMessageBox()
+    msgBox.setText(message)
+    msgBox.setWindowTitle(title)
+    msgBox.setInformativeText(informative_text)
+    msgBox.setStandardButtons(QMessageBox.Ok)
+    msgBox.setDefaultButton(QMessageBox.Ok)
+    msgBox.exec_()
+
 class ColorPlannerDocker(DockWidget):
     def __init__(self):
         # Initialize Parent
@@ -46,8 +55,22 @@ class ColorPlannerDocker(DockWidget):
         self.Ui.refreshMainLayers.clicked.connect(self.refreshMainLayers)
 
     def refreshMainLayers(self):
+        doc = Krita.instance().activeDocument()
+        if doc is None:
+            ErrorMessage("No currently active document!")
+            return
+
         print("refreshMainLayers called!")
-        #Krita.instance().
+        root = doc.rootNode()
+        nodes = root.childNodes()
+
+        if len(nodes) == 0:
+            ErrorMessage("The current document has no layers!")
+            return
+
+        print("Current 'main' layers:")
+        for node in nodes:
+            print(node.name())
 
     def exportDocument(self):
         # Get the document
