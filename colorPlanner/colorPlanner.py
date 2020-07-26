@@ -68,9 +68,15 @@ class ColorPlannerDocker(DockWidget):
             ErrorMessage("The current document has no layers!")
             return
 
-        print("Current 'main' layers:")
+        # Get layer names
+        layer_names = []
         for node in nodes:
-            print(node.name())
+            layer_names.append(node.name())
+
+        # Reset combo box
+        layer_cmbbox = self.Ui.mainLayerComboBox
+        layer_cmbbox.clear()
+        layer_cmbbox.addItems(layer_names)
 
     def exportDocument(self):
         # Get the document
