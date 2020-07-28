@@ -3,6 +3,7 @@ set -e
 DESTDIR=${HOME}/.local/share/krita/pykrita
 
 pyuic5 colorPlanner/colorPlannerForm.ui > colorPlanner/colorPlannerForm.py
+pyuic5 colorPlanner/colorPlannerMaskSelectForm.ui > colorPlanner/colorPlannerMaskSelectForm.py
 
 if [ -e ${DESTDIR}/colorPlanner ]; then
     rm -r ${DESTDIR}/colorPlanner

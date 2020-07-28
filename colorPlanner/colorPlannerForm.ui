@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>547</width>
+    <height>455</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,51 +15,49 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QPushButton" name="selectCurrentLayerAsBaseButton">
        <property name="text">
-        <string>Main Layer:</string>
+        <string>Select Current Layer as Base Layer</string>
        </property>
       </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="refreshMainLayers">
-       <property name="text">
-        <string>Refresh Layers</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="mainLayerComboBox"/>
      </item>
     </layout>
    </item>
    <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Mask Selector</string>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
-    </spacer>
+    </widget>
+   </item>
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>527</width>
+        <height>348</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="buildMaskCompositor">
+     <property name="text">
+      <string>Build Parallel Mask Compositor</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
