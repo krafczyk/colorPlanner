@@ -46,14 +46,14 @@
         <x>0</x>
         <y>0</y>
         <width>527</width>
-        <height>348</height>
+        <height>339</height>
        </rect>
       </property>
      </widget>
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="buildMaskCompositor">
+    <widget class="QPushButton" name="buildMaskCompositorButton">
      <property name="text">
       <string>Build Parallel Mask Compositor</string>
      </property>
