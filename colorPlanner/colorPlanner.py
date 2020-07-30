@@ -198,16 +198,15 @@ class ColorPlannerDocker(DockWidget):
             #doc.rootNode().removeChildNode(node)
 
         # Build 'clean' grayscale version of base layer.
-        baseClone = self.baseLayer.clone()
+        baseClone = self.baseLayer.duplicate()
         for child in baseClone.childNodes():
             child.remove()
             #self.baseClone.removeChildNode(child)
         baseClone.setLocked(False)
-        doc.rootNode().addChildNode(baseClone, self.baseLayer)
-        #baseClone.setColorSpace('GRAYA', 'U8', 'Gray-D50-elle-V2-srgbtrc.icc')
-        #self.baseLayer.setColorSpace('GRAYA', 'U8', 'Gray-D50-elle-V2-srgbtrc.icc')
+        baseClone.setColorSpace('GRAYA', 'U8', 'Gray-D50-elle-V2-srgbtrc.icc')
 
         # Add it to the root node for now.
+        doc.rootNode().addChildNode(baseClone, self.baseLayer)
 
     def canvasChanged(self, canvas):
         # Need to implement!!
